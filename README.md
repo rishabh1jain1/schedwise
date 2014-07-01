@@ -1,4 +1,4 @@
-schedwise
+SchedWise
 =========
 
 A Wise Scheduler for Intelligent Resource Placements in Openstack Clouds. 
@@ -6,7 +6,8 @@ It provides an interactive scheduler UI dashboard and a backend Scheduler-as-a-S
 
 
 SchedWise Service
-=================
+-----------------
+
 This provides a RESTful backend service with APIs to support the frontend Scheduler UI. 
 This service wraps a stand-alone intelligent placement decision engine that is capable of deciding the optimal 
 compute placements for a given request. 
@@ -23,10 +24,9 @@ Requirements
 ------------
 
 Please ensure you have the necessary third party library installed. Easiest way is to install the 
-Openstack Nova projects requirements_ and a few additional libraries such as flask and coinor.pulp>=1.0.4.
+Openstack Nova projects [requirements](https://github.com/openstack/nova/blob/master/requirements.txt)
+and a few additional libraries such as flask and coinor.pulp>=1.0.4.
 This should satisfy all the requirements of this project. 
-
-.. _requirements: https://github.com/openstack/nova/blob/master/requirements.txt 
 
 
 Supported APIs
