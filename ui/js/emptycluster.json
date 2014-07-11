@@ -1,0 +1,126 @@
+{
+   "flavors":{
+      "1":{
+         "name":"m1.tiny",
+         "links":[
+            {
+               "href":"http://controller:8774/v2/4017a3f7097446259c5fcf50094efb58/flavors/1",
+               "rel":"self"
+            },
+            {
+               "href":"http://controller:8774/4017a3f7097446259c5fcf50094efb58/flavors/1",
+               "rel":"bookmark"
+            }
+         ],
+         "ram":512,
+         "OS-FLV-DISABLED:disabled":false,
+         "vcpus":1,
+         "swap":"",
+         "os-flavor-access:is_public":true,
+         "rxtx_factor":1,
+         "OS-FLV-EXT-DATA:ephemeral":0,
+         "disk":1,
+         "id":"1"
+      },
+      "2":{
+         "name":"m1.small",
+         "links":[
+            {
+               "href":"http://controller:8774/v2/4017a3f7097446259c5fcf50094efb58/flavors/2",
+               "rel":"self"
+            },
+            {
+               "href":"http://controller:8774/4017a3f7097446259c5fcf50094efb58/flavors/2",
+               "rel":"bookmark"
+            }
+         ],
+         "ram":2048,
+         "OS-FLV-DISABLED:disabled":false,
+         "vcpus":1,
+         "swap":"",
+         "os-flavor-access:is_public":true,
+         "rxtx_factor":1,
+         "OS-FLV-EXT-DATA:ephemeral":0,
+         "disk":20,
+         "id":"2"
+      },
+      "3":{
+         "name":"m1.medium",
+         "links":[
+            {
+               "href":"http://controller:8774/v2/4017a3f7097446259c5fcf50094efb58/flavors/3",
+               "rel":"self"
+            },
+            {
+               "href":"http://controller:8774/4017a3f7097446259c5fcf50094efb58/flavors/3",
+               "rel":"bookmark"
+            }
+         ],
+         "ram":4096,
+         "OS-FLV-DISABLED:disabled":false,
+         "vcpus":2,
+         "swap":"",
+         "os-flavor-access:is_public":true,
+         "rxtx_factor":1,
+         "OS-FLV-EXT-DATA:ephemeral":0,
+         "disk":40,
+         "id":"3"
+      },
+      "4":{
+         "name":"m1.large",
+         "links":[
+            {
+               "href":"http://controller:8774/v2/4017a3f7097446259c5fcf50094efb58/flavors/4",
+               "rel":"self"
+            },
+            {
+               "href":"http://controller:8774/4017a3f7097446259c5fcf50094efb58/flavors/4",
+               "rel":"bookmark"
+            }
+         ],
+         "ram":8192,
+         "OS-FLV-DISABLED:disabled":false,
+         "vcpus":4,
+         "swap":"",
+         "os-flavor-access:is_public":true,
+         "rxtx_factor":1,
+         "OS-FLV-EXT-DATA:ephemeral":0,
+         "disk":80,
+         "id":"4"
+      },
+      "5":{
+         "name":"m1.xlarge",
+         "links":[
+            {
+               "href":"http://controller:8774/v2/4017a3f7097446259c5fcf50094efb58/flavors/5",
+               "rel":"self"
+            },
+            {
+               "href":"http://controller:8774/4017a3f7097446259c5fcf50094efb58/flavors/5",
+               "rel":"bookmark"
+            }
+         ],
+         "ram":16384,
+         "OS-FLV-DISABLED:disabled":false,
+         "vcpus":8,
+         "swap":"",
+         "os-flavor-access:is_public":true,
+         "rxtx_factor":1,
+         "OS-FLV-EXT-DATA:ephemeral":0,
+         "disk":160,
+         "id":"5"
+      }
+   },
+   "subnets":{ },
+   "keypairs":{ },
+   "routers":{ },
+   "floating_ips":{ },
+   "servers":{ },
+   "volumes":{ },
+   "images":{ },
+   "neutronnetwork":{ },
+   "networks":{ },
+   "security_groups":{ },
+   "ports":{ },
+   "lookup":{ }
+}
