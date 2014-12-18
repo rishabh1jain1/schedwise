@@ -74,7 +74,7 @@ class MaxRamAllocationPerHostConstraint(
         """
         free_ram_mb = host_state.free_ram_mb
         total_usable_ram_mb = host_state.total_usable_ram_mb
-        memory_mb_limit = total_usable_ram_mb * CONF.ram_allocation_ratio
+        memory_mb_limit = total_usable_ram_mb * 1.0
         used_ram_mb = total_usable_ram_mb - free_ram_mb
         usable_ram_mb = memory_mb_limit - used_ram_mb
         return usable_ram_mb

@@ -163,7 +163,7 @@ class HostsPulpSolver(novasolvers.BaseHostSolver):
 
         # The problem is solved using PuLP's choice of Solver
         prob.solve()
-
+        print prob
         if pulp.LpStatus[prob.status] == 'Optimal':
             for v in prob.variables():
                 if v.name.startswith('IA'):

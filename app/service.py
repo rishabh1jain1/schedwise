@@ -24,11 +24,13 @@ CONF(default_config_files = ['conf/smart_scheduler.conf'])
 #TODO implement Hosts caching talking to OpenStack HostManager
 #Temporarily using a hosts list for demo purposes
 hosts = [{'uuid': 'uuid1', 'free_disk_mb': 10240, 'total_usable_disk_gb': 10,
-          'host': 'Host1', 'free_ram_mb': 512, 'nodename': 'Node1'},
+          'host': 'Host1', 'free_ram_mb': 99, 'nodename': 'Node1'},
          {'uuid': 'uuid2', 'free_disk_mb': 1280, 'total_usable_disk_gb': 2,
-          'host': 'Host2', 'free_ram_mb': 256, 'nodename': 'Node2'},
-         {'uuid': 'uuid3', 'free_disk_mb': 256, 'total_usable_disk_gb': 1,
-          'host': 'Host3', 'free_ram_mb': 256, 'nodename': 'Node3'}]
+          'host': 'Host2', 'free_ram_mb': 256, 'nodename': 'Node1'},
+         {'uuid': 'uuid3', 'free_disk_mb': 5000, 'total_usable_disk_gb': 1,
+          'host': 'Host3', 'free_ram_mb': 1024, 'nodename': 'Node1'},
+         {'uuid': 'uuid4', 'free_disk_mb': 5000, 'total_usable_disk_gb': 1,
+          'host': 'Host4', 'free_ram_mb': 1024, 'nodename': 'Node1'}]
 
 #TODO - build this dictionary by calling Openstack apis
 supported_flavors = {'m1.tiny': {'memory_mb': 512, 'root_gb': 1, 'vcpus': 1}, 
@@ -48,9 +50,9 @@ class SchedulerService(object):
             filter_properties = {'instance_type': supported_flavors.get(requested_flavor, None)}
         else:
             filter_properties = request_properties
-        print hosts
-        print instance_uuids
-        print filter_properties
+        #print hosts
+        #print instance_uuids
+        #print filter_properties
         host_states = []
         for host in hosts:
             hostname = host.get('host','')
@@ -62,7 +64,7 @@ class SchedulerService(object):
             host_state.total_usable_disk_gb = total_usable_disk_gb
             host_state.free_disk_mb = free_disk_mb
             host_state.free_ram_mb = free_ram_mb
-            print hostname, nodename, total_usable_disk_gb, free_disk_mb, free_ram_mb
+            #print hostname, nodename, total_usable_disk_gb, free_disk_mb, free_ram_mb
             host_states.append(host_state)
         placement_tuples = self.solver.host_solve(hosts=host_states,
                                          instance_uuids=instance_uuids,

@@ -47,5 +47,5 @@ class RamCost(solvercosts.BaseCost):
 
         costs = [[hosts[i].free_ram_mb * SOLVER_CONF.ram_weight_multiplier
                 for j in range(num_instances)] for i in range(num_hosts)]
-        print 'costs', costs
+        #print 'costs', costs
         return costs

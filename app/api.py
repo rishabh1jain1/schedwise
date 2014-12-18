@@ -23,7 +23,9 @@ service = SchedulerService()
 
 @app.route('/schedwise/v1.0/placement', methods = ['POST'])
 def get_placement():
-    instance_requests = request.json['instance_requests']
+    data = request.stream.read()
+    json1_data = json.loads(data)
+    instance_requests = json1_data['instance_requests']
     results = []
     for rnum, instance_request in enumerate(instance_requests):
         instance_uuids = instance_request.get('instance_uuids', None)

@@ -19,12 +19,6 @@ from oslo.config import cfg
 from nova.scheduler.solvers import linearconstraints
 
 CONF = cfg.CONF
-disk_allocation_ratio_opt = cfg.FloatOpt(
-                                         'disk_allocation_ratio',
-                                          default=1.0,
-                                          help='disk allocation ratio')
-CONF.register_opt(disk_allocation_ratio_opt, group='solver_scheduler')
-SOLVER_CONF = CONF.solver_scheduler
 
 
 class MaxDiskAllocationPerHostConstraint(
@@ -45,7 +39,6 @@ class MaxDiskAllocationPerHostConstraint(
                   for j in range(self.num_instances)]
         supply = [self._get_usable_disk_mb(hosts[i])
                   for i in range(self.num_hosts)]
-        print 'supply', supply
         coefficient_vectors = [demand + [-supply[i]]
                                for i in range(self.num_hosts)]
         return coefficient_vectors
@@ -73,7 +66,7 @@ class MaxDiskAllocationPerHostConstraint(
         """
         free_disk_mb = host_state.free_disk_mb
         total_usable_disk_mb = host_state.total_usable_disk_gb * 1024
-        disk_mb_limit = total_usable_disk_mb * SOLVER_CONF.disk_allocation_ratio
+        disk_mb_limit = total_usable_disk_mb * 1.0
         used_disk_mb = total_usable_disk_mb - free_disk_mb
         usable_disk_mb = disk_mb_limit - used_disk_mb
         return usable_disk_mb

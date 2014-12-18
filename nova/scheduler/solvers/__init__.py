@@ -24,7 +24,7 @@ from oslo.config import cfg
 
 scheduler_solver_costs_opt = cfg.ListOpt(
         'scheduler_solver_costs',
-        default=['RamCost'],
+        default=[],
         help='Which cost matrices to use in the scheduler solver.')
 
 # (xinyuan) This option should be changed to DictOpt type
@@ -36,7 +36,7 @@ scheduler_solver_cost_weights_opt = cfg.ListOpt(
 
 scheduler_solver_constraints_opt = cfg.ListOpt(
         'scheduler_solver_constraints',
-        default=[],
+        default=['MaxRamAllocationPerHostConstraint','MaxDiskAllocationPerHostConstraint','NonTrivialSolutionConstraint'],
         help='Which constraints to use in scheduler solver')
 
 CONF = cfg.CONF
