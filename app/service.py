@@ -24,13 +24,13 @@ CONF(default_config_files = ['conf/smart_scheduler.conf'])
 #TODO implement Hosts caching talking to OpenStack HostManager
 #Temporarily using a hosts list for demo purposes
 hosts = [{'uuid': 'uuid1', 'free_disk_mb': 10240, 'total_usable_disk_gb': 10,
-          'host': 'Host1', 'free_ram_mb': 99, 'nodename': 'Node1'},
-         {'uuid': 'uuid2', 'free_disk_mb': 1280, 'total_usable_disk_gb': 2,
-          'host': 'Host2', 'free_ram_mb': 256, 'nodename': 'Node1'},
+          'host': 'Host1', 'free_ram_mb': 1, 'nodename': 'Node1'},
+         {'uuid': 'uuid2', 'free_disk_mb': 2048, 'total_usable_disk_gb': 2,
+          'host': 'Host2', 'free_ram_mb': 2, 'nodename': 'Node1'},
          {'uuid': 'uuid3', 'free_disk_mb': 5000, 'total_usable_disk_gb': 1,
-          'host': 'Host3', 'free_ram_mb': 1024, 'nodename': 'Node1'},
+          'host': 'Host3', 'free_ram_mb': 1, 'nodename': 'Node1'},
          {'uuid': 'uuid4', 'free_disk_mb': 5000, 'total_usable_disk_gb': 1,
-          'host': 'Host4', 'free_ram_mb': 1024, 'nodename': 'Node1'}]
+          'host': 'Host4', 'free_ram_mb': 1, 'nodename': 'Node1'}]
 
 #TODO - build this dictionary by calling Openstack apis
 supported_flavors = {'m1.tiny': {'memory_mb': 512, 'root_gb': 1, 'vcpus': 1}, 
@@ -81,3 +81,15 @@ class SchedulerService(object):
     def get_resources(self):
         resources = {'hosts': hosts}
         return resources 
+
+    def update_host(self,data):
+        name = data['name']
+        for host in hosts:
+          if str(host['host']) == str(name):
+            if(data['disk_mb'] != ""):
+              host['free_disk_mb'] = data['disk_mb']
+            if(data['memory_mb']!=""):
+              host['free_ram_mb'] = data['memory_mb']
+            break
+
+

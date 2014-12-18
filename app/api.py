@@ -42,5 +42,13 @@ def get_resources():
     resources = service.get_resources()
     return jsonify({'resources': resources}), 200
 
+@app.route('/schedwise/v1.0/update_host', methods = ['POST'])
+def update_host():
+    data = request.stream.read()
+    data = json.loads(data)   
+    print data
+    service.update_host(data)
+    return "Updated Successfully!" 
+#'{"name":"Host1","memory_mb":23,"disk_gb":2}'
 
 

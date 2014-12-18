@@ -55,10 +55,11 @@ class HostsPulpSolver(scheduler_solver.BaseHostSolver):
                 if i != j:
                     prob += column_sum_var[i] + column_sum_var[j] <= z_variables[temp] + 1
                     prob += 2 * z_variables[temp]<=column_sum_var[i] + column_sum_var[j]
+                    #print str(temp)  + " " + str(z_variables[temp])
                     temp = temp + 1
 
         #Adding the objective
-        prob+=pulp.lpSum([z_variables[i]] for i in range(temp))
+        prob+=z_variables[0] * 0 + z_variables[1] * 3 + z_variables[2] * 1 + z_variables[4] * 3 + z_variables[5] * 5 + z_variables[8] * 4 
         return prob
 
     def update_with_strict_affinity_constraints_and_objective(self,variables,prob, num_hosts, num_instances):
@@ -123,7 +124,7 @@ class HostsPulpSolver(scheduler_solver.BaseHostSolver):
             prob += column_sum_var[i] <= pulp.lpSum([variables[i][j]] for j in range(num_instances))
 
 
-        prob += pulp.lpSum([column_sum_var[i]] for i in range(num_hosts)) == int(limit)
+        prob += pulp.lpSum([column_sum_var[i]] for i in range(num_hosts)) <= int(limit)
 
 
         return prob
@@ -223,7 +224,6 @@ class HostsPulpSolver(scheduler_solver.BaseHostSolver):
         # Create host-instance tuples from the solutions.
         if pulp.LpStatus[prob.status] == 'Optimal':
             for v in prob.variables():
-                print str(v)+" "+str(v.varValue)
                 if v.name.startswith('IA'):
                     (host_id, instance_id) = v.name.lstrip('IA').lstrip(
                                                         '_').split('_')
