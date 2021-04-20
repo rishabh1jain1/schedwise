@@ -13,7 +13,7 @@ PyRSS2Gen==1.0.0
 Twisted==12.2.0
 Unirest==1.1.6
 WebOb==1.4
-Werkzeug==0.9.6
+Werkzeug==0.15.3
 altgraph==0.10.1
 backports.ssl-match-hostname==3.4.0.2
 bdist-mpkg==0.4.4
