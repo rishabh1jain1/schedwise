@@ -93,7 +93,7 @@ simplejson==3.5.2
 six==1.8.0
 topia.termextract==1.1.0
 tox==1.8.0
-urllib3==1.9.1
+urllib3==1.26.5
 vboxapi==1.0
 virtualenv==1.11.6
 websocket-client==0.21.0
