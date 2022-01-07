@@ -20,7 +20,7 @@ bdist-mpkg==0.4.4
 beautifulsoup4==4.3.2
 bonjour-py==0.3
 cassandra-driver==2.1.2
-cvxopt==1.1.7
+cvxopt==1.2.7
 elasticsearch==1.2.0
 futures==2.2.0
 gensim==0.10.2
