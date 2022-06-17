@@ -36,7 +36,7 @@ matplotlib==1.1.1
 mock==1.0.1
 modulegraph==0.10.1
 netaddr==0.7.12
-numpy==1.6.2
+numpy==1.21.0
 openopt==0.5402
 ortools==1.3795
 poster==0.8.1
